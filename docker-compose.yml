@@ -11,7 +11,7 @@ services:
       WORDPRESS_DB_PASSWORD: root
       WORDPRESS_DB_NAME: wordpress
     volumes:
-      - ./:/var/www/html    # mount chính thư mục chứa wp-config.php, index.php
+      - ./wp-content:/var/www/html/wp-content   # chỉ mount wp-content
     depends_on:
       - db
 
