@@ -24,6 +24,9 @@ if ( ! function_exists( 'twentytwentyfive_post_format_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'twentytwentyfive_post_format_setup' );
 
+
+
+
 // Enqueues editor-style.css in the editors.
 if ( ! function_exists( 'twentytwentyfive_editor_style' ) ) :
 	/**
@@ -156,3 +159,17 @@ if ( ! function_exists( 'twentytwentyfive_format_binding' ) ) :
 		}
 	}
 endif;
+
+add_action( 'init', function() {
+    register_block_pattern(
+        'twentytwentyfive/bootstrap-footer',
+        array(
+            'title'       => __( 'Bootstrap Footer', 'twentytwentyfive' ),
+            'description' => _x( 'Custom Bootstrap footer with quick links and social icons.', 'Pattern description', 'twentytwentyfive' ),
+            'content'     => file_get_contents( get_template_directory() . '/patterns/footer.php' ),
+            'categories'  => array( 'footer' ),
+        )
+    );
+});
+
+
